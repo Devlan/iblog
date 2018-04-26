@@ -1,0 +1,11 @@
+from django.contrib import admin
+from .models import BlogPost
+
+
+class BlogPostAdmin(admin.ModelAdmin):
+    list_display = ['title', 'tag', 'author', 'create_time']
+
+
+# Register your models here.
+admin.site.register(BlogPost, BlogPostAdmin)
+

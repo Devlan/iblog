@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% block container %}
+    <div class="form col-md-offset-5 col-md-2" >
+        <form action="/user/sigup" method="post">
+            <div class="form-group">
+                <label for="username"><span>账号:</span></label>
+                <input type="text" class="form-control" placeholder="账号">
+            </div>
+            <div class="form-group">
+                <label for="password"><span>密码:</span></label>
+                <input type="password" class="form-control" placeholder="密码">
+                <br>
+                <a class="pull-left">忘记密码？</a>
+                <button class="pull-right btn btn-primary" type="submit">登录</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
