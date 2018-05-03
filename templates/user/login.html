@@ -1,7 +1,8 @@
 {% extends 'blog/base.html' %}
 {% block container %}
     <div class="form col-md-offset-5 col-md-2" >
-        <form action="/user/sigup" method="post">
+        <form action="/user/login_handle" method="post">
+            {% csrf_token %}
             <div class="form-group">
                 <label for="username"><span>账号:</span></label>
                 <input type="text" class="form-control" placeholder="账号">
@@ -10,6 +11,11 @@
                 <label for="password"><span>密码:</span></label>
                 <input type="password" class="form-control" placeholder="密码">
                 <br>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox">记住用户
+                    </label>
+                </div>
                 <a class="pull-left">忘记密码？</a>
                 <button class="pull-right btn btn-primary" type="submit">登录</button>
             </div>

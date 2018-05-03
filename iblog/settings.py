@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'blog',
     'user',
     'haystack',
+    'markdown_deux',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +143,6 @@ HAYSTACK_CONNECTIONS = {
 
 # 自动生成索引
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media/')
+

@@ -1,54 +1,38 @@
 {% extends 'blog/base.html' %}
+{% load markdown_deux_tags %}
 {% block container %}
 
     <div class="container">
         <div class="row">
             <div class="col-md-8">
             {% for blog in context %}
-            <a><h1>{{ blog.title }}</h1></a>
-            {{ blog.content|safe }}<br> {{ blog.author }}<br> {{ blog.createtime }}
-            {% endfor %}
+                <div class="text-center"><a href="/blog/article/{{ blog.id }}/" target="_blank"><h1>{{ blog.title }}</h1></a></div>
+                <label>作者：{{ blog.author }}{{ blog.create_time }}</label><hr>
+                <div class="post_context">{{ blog.content|markdown }}</div>
+                {% endfor %}
             </div>
-            <!--右侧文章分类-->
-            <div class="col-md-4">
-                    <div class="list-group">
-                        <li class="list-group-item">文章分类:</li>
-                        <!-- 此处应从数据库获取tag 的分类 -->
-                        <!--tag 分类 -->
-                        <a href="#" class="list-group-item active">
-                        <!--tag 计数 -->
-                        <span class="badge">11</span>
-                        VM
-                        </a>
-                        <a href="#" class="list-group-item">
-                        <span class="badge">11</span>
-                        运维
-                        </a>
-                        <a href="#" class="list-group-item">
-                        <span class="badge">11</span>
-                        爬虫
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!--右侧文章分类-->
+
+            {% include "blog/blog_right_category.html" %}
         </div>
 
     </div>
       <!--底部分页-->
       <nav class="text-center navbar-fixed-bottom">
       <ul class="pagination">
-          <li><a href="#">&laquo;</a></li>
+          <li><a href="?page=1">&laquo;</a></l>
           {% if context.has_previous %}
-          <li><a href="?page={{ context.previous_page_number}}">上一页</a></li>
+          <li><a href="?page={{ context.previous_page_number }}">上一页</a></li>
+          <li><a href="?page={{ context.previous_page_number }}">{{ context.previous_page_number }}</a></li>
           {% endif %}
 
           {% if context.has_next %}
           <li class="active"><a href="#">{{ context.number }}</a></li>
+          <li><a href="?page={{ context.next_page_number }}">{{ context.next_page_number }}</a></li>
           <li><a href="?page={{ context.next_page_number }}">下一页</a></li>
           {% endif %}
-          <li><a href="#">&raquo;</a></li>
+          <li><a href="?page={{ context.paginator.num_pages }}">&raquo;</a></li>
       </ul>
       </nav>
       <!--底部分页-->
+
 {% endblock %}

@@ -1,0 +1,14 @@
+<!--右侧文章分类-->
+<div class="list-group col-lg-4">
+    <li class="list-group-item">文章分类:</li>
+        <!--tag 分类 -->
+        {% for tags in tag_count %}
+        <a href="#" class="list-group-item">
+            {{ tags.tag }}
+            <!--tag 计数 -->
+                <span class="badge">{{ tags.tag_times }}</span>
+        </a>
+        {% endfor %}
+        <!--tag 分类 -->
+</div>
+<!--右侧文章分类-->

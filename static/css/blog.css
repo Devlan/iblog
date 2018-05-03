@@ -1,0 +1,13 @@
+.col-md-8{
+    word-wrap: break-word;
+
+}
+.post_context{
+    height: 50px; /*这得改*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+a:link,a:hover{
+    text-decoration: none; /*鼠标放上去，去掉下划线*/
+}

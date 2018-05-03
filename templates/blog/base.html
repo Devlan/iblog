@@ -13,6 +13,7 @@
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/blog.css" %}">
     <title>iblog</title>
   </head>
 {% endblock %}
@@ -27,7 +28,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="index" class="navbar-brand">lblog</a>
+                <a href="/blog/index" class="navbar-brand">lblog{{ title }}</a>
             </div>
             <div class="collapse navbar-collapse" id="mymenu">
                 <ul class="nav navbar-nav">

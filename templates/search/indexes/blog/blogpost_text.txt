@@ -1,1 +1,4 @@
-{{title}}
+{{object.title}}
+{{object.author}}
+{{object.content}}
+{{object.tag}}

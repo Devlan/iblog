@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+{% load markdown_deux_tags %}
+{% block container %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="post">
+                    {% for blog in context %}
+                    <h1 class="text-center">{{ blog.title }}</h1>
+                        <div class="text-right"><span>作者：{{ blog.author }}{{ blog.create_time }}</span></div><hr>
+                    {{ blog.content|markdown }}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="cotable text-center">
+                    <h1>目录</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
